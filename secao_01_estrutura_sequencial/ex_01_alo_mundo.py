@@ -10,6 +10,9 @@ Escreva um programa que mostre a mensagem "Olá Mundo"
 """
 
 
+from os import PRIO_PGRP
+
+
 def ola_mundo():
     """Escreva aqui em baixo a sua solução"""
-
+    print('Olá Mundo')
