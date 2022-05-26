@@ -18,3 +18,7 @@ Mostrar apenas valor inteiro da temperatura
 
 def transformar_para_fahrenheit():
     """Escreva aqui em baixo a sua solução"""
+    c = float(input('Insira a temperatura em C'))
+    f = (1.8 * c) + 32
+    f_casas = round(f)
+    print(f'Essa temperatura é de {f_casas} Fahrenheit')
