@@ -13,7 +13,7 @@ Mostrar a área com 1 casa decimal.
     >>> ex_12_peso_ideal.input = lambda k: '1.80'
     >>> ex_12_peso_ideal.calcular_peso_ideal()
     Seu peso ideal é 72.9 kg
-
+ 
 """
 
 
