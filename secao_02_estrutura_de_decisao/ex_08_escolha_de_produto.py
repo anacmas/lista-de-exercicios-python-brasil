@@ -7,16 +7,29 @@ Faça um programa que pergunte o preço de três produtos e informe qual produto
 Mostrar o resultado com duas casas decimais
 
     >>> decidir_melhor_produto(2, 3, 5)
-    Melhor produto custa R$ 2.00
+    'Melhor produto custa R$ 2.00'
     >>> decidir_melhor_produto(10, 5.55, 7)
-    Melhor produto custa R$ 5.55
+    'Melhor produto custa R$ 5.55'
     >>> decidir_melhor_produto(20, 30, 17.62)
-    Melhor produto custa R$ 17.62
+    'Melhor produto custa R$ 17.62'
     >>> decidir_melhor_produto(7, 1, 15)
-    Melhor produto custa R$ 1.00
+    'Melhor produto custa R$ 1.00'
 
 """
 
-
 def decidir_melhor_produto(x, y, z):
     """Escreva aqui em baixo a sua solução"""
+
+    x_arredondado = "{:.2f}".format(x)
+    y_arredondado = "{:.2f}".format(y)
+    z_arredondado = "{:.2f}".format(z)
+    melhor_produto = "Melhor produto custa R$ {}"
+
+    if x < y and x < z:
+        return (melhor_produto.format(x_arredondado))
+
+    elif y < x and y < z:
+        return (melhor_produto.format(y_arredondado))
+
+    elif z < y and z < x:
+        return (melhor_produto.format(z_arredondado))
