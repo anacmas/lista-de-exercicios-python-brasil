@@ -24,3 +24,12 @@ Faça um Programa que peça uma data no formato dd/mm/aaaa e determine se a mesm
 
 def validar_data(data: str):
     """Escreva aqui em baixo a sua solução"""
+
+    if (ano % 4 == 0 and ano % 400 == 0):
+        return True
+    
+    elif (ano % 4 == 0 and ano %100 != 0):
+        return True
+
+    else:
+        return False

@@ -31,5 +31,37 @@ Caso contrário, ele será classificado como "Inocente".
 """
 
 
-def investivar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str, trabalhou: str, ):
+def investivar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str, trabalhou: str):
     """Escreva aqui em baixo a sua solução"""
+
+    lista = [telefonou, estava_no_local, mora_perto, devia, trabalhou]
+
+    contador = 0
+    contador_sim = 0
+
+    for item in lista[item]:
+      contador +=1
+
+      if item == 'Sim':
+         contador_sim += 1
+
+      else: 
+        continue
+      
+    print(contador_sim)
+
+investivar('Sim','Não','Não','Não','Não')
+
+#     while contador < 5:
+#       contador +=1
+#       if (telefonou or estava_no_local or mora_perto or devia or trabalhou) == 'Sim':
+#         contador_sim += 1
+#       else: 
+#         continue
+
+#     print(contador_sim)
+      
+    
+    
+
+# investivar('Sim','Não','Não','Não','Não')

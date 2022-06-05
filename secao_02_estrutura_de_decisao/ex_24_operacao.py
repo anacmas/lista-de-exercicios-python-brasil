@@ -31,3 +31,19 @@ Mostre o restultado com duas casas decimais
 
 def fazer_operacao_e_classificar(n_1: float, n_2: float, operacao: str):
     """Escreva aqui em baixo a sua solução"""
+
+  conta = (n_1 + operacao + n_2)
+  print(conta)
+
+fazer_operacao_e_classificar(5, 2, '-')
+  # if operacao == '+':
+  #   if (n_1 + n_2) % 2 != 0:
+  #     print(f'Número é impar, {} e {}')
+
+  #   else:
+  #     print(f'Número é par, {} e {}')
+
+  # elif operacao == '/':
+  # elif operacao == '*':
+  # elif operacao == '-':
+

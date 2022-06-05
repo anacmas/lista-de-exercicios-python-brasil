@@ -30,12 +30,12 @@ se digitar outro valor deve aparecer valor inválido.
 def calcular_dia_da_semana(numero: int):
     """Escreva aqui em baixo a sua solução"""
 
-    lista = ["'Dia Inválido'", "'Domingo'", "'Segunda'", "'Terça'", "'Quarta'", "'Quinta'", "'Sexta'", "'Sábado'"]
+    lista = ['Dia Inválido', 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
 
     if 0 <= numero < 8:
-        print(lista[numero])
+       return lista[numero]
         
     else:
-        print("'Dia Inválido'")
+       return 'Dia Inválido'
 
     

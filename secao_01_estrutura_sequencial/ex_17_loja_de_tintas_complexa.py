@@ -21,7 +21,7 @@ Acrescente 10% de folga e sempre arredonde os valores para cima, isto é, consid
     >>> ex_17_loja_de_tintas_complexa.input = lambda k: '200'
     >>> ex_17_loja_de_tintas_complexa.calcular_latas_e_preco_de_tinta()
     Você deve comprar 37 litros de tinta.
-    Você pode comprar 3 lata(s) de 18 litros a um custo de R$ 240. Vão sobrar 17.0 litro(s) de tinta.
+    Você pode comprar 3 lata(s) de 18 litros a um custo dZe R$ 240. Vão sobrar 17.0 litro(s) de tinta.
     Você pode comprar 11 lata(s) de 3.6 litros a um custo de R$ 275. Vão sobrar 2.6 litro(s) de tinta.
     Para menor custo, você pode comprar 2 lata(s) de 18 litros e 1 galão(ões) de 3.6 litros a um custo de R$ 185. Vão sobrar 2.6 litro(s) de tinta.
 
@@ -31,35 +31,41 @@ import math
 def calcular_latas_e_preco_de_tinta():
     """Escreva aqui em baixo a sua solução"""
 
-    metros = float(input('Quantos m² tem a área a ser pintada? '))
+    metros = float(input('Quantos m² tem a área a ser pintada? ')) * 1.1
     litro_por_m2 = metros/6
-    litro_por_m2_arredondado = math.ceil(litro_por_m2*1.1)
+    litro_por_m2_arredondado = math.ceil(litro_por_m2)
     print(f'Você deve comprar {litro_por_m2_arredondado} litros de tinta.')
 
     #só 18 litos:
     numero_latas_18 = math.ceil(litro_por_m2/18)
     preco_18 = numero_latas_18 * 80
     sobrar_18 = (numero_latas_18*18)-(litro_por_m2)
-    print(f'Você pode comprar {numero_latas_18} lata(s) de 18 litros a um custo de R$ {preco_18}. Vão sobrar {sobrar_18} litro(s) de tinta.')
+    print(f'Você pode comprar {numero_latas_18} lata(s) de 18 litros a um custo de R$ {preco_18}. Vão sobrar {round(sobrar_18, 1)} litro(s) de tinta.')
 
     #Só 3.6 litros:
-    numero_latas_3 = round(litro_por_m2/3.6)
+    numero_latas_3 = math.ceil(litro_por_m2/3.6)
     preco_3 = numero_latas_3 * 25
     sobrar_3 = (numero_latas_3*3.6)-(litro_por_m2)
-    print(f'Você pode comprar {numero_latas_3} lata(s) de 3.6 litros a um custo de R$ {preco_3}. Vão sobrar {sobrar_3} litro(s) de tinta.')
+    print(f'Você pode comprar {numero_latas_3} lata(s) de 3.6 litros a um custo de R$ {preco_3}. Vão sobrar {round(sobrar_3, 1)} litro(s) de tinta.')
 
     #melhor combinação:
     if litro_por_m2 < 10.8:
-        numero_latas_melhor = round(litro_por_m2/3.6)
-        sobrar_melhor = (numero_latas_melhor*3.6) - litro_por_m2
-        print(f'Para menor custo, você pode comprar 0 lata(s) de 18 litros e {numero_latas_melhor} galão(ões) de 3.6 litros a um custo de R$ 185. Vão sobrar 2.6 litro(s) de tinta.')
+        numero_galao_melhor = math.ceil(litro_por_m2/3.6)
+        sobrar_melhor = (numero_galao_melhor*3.6) - litro_por_m2
+        print(f'Para menor custo, você pode comprar 0 lata(s) de 18 litros e {numero_galao_melhor} galão(ões) de 3.6 litros a um custo de R$ 185. Vão sobrar {math.ceil()} litro(s) de tinta.')
 
-calcular_latas_e_preco_de_tinta()
+    else:
+        numero_latas = litro_por_m2//18
+        resto = litro_por_m2 % 18
 
-    #if 0 < litro_por_m2 <= 18:
-     #   print("Você deve comprar 1 lata(s) tinta ao custo de R$ 80.00")
+        if resto > 10.8:
+            quantidade_latas_final = numero_latas + 1
+            sobra = (quantidade_latas_final * 18) - litro_por_m2
+            print(f'Para menor custo, você pode comprar {quantidade_latas_final} lata(s) de 18 litros e 0 galão(ões) de 3.6 litros a um custo de R$ {quantidade_latas_final*80}. Vão sobrar {round(sobra, 1)} litro(s) de tinta.')
 
-   # else:
-    #    numero_de_latas = round(litro_por_m2/18)
-    #    preco = numero_de_latas * 80
-      #  print('Você deve comprar', numero_de_latas, 'lata(s) tinta ao custo de R$ %.2f' %(preco))
+        else:
+            quantidade_galoes = math.ceil(resto/3.6)
+            sobra = ((numero_latas * 18) + (quantidade_galoes * 3.6)) - litro_por_m2
+            print(f'Para menor custo, você pode comprar {numero_latas} lata(s) de 18 litros e {quantidade_galoes} galão(ões) de 3.6 litros a um custo de R$ {(numero_latas*80)+(quantidade_galoes*25)}. Vão sobrar {round(sobra, 1)} litro(s) de tinta.')
+
+

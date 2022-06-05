@@ -48,33 +48,37 @@ def calcular_conceito(nota_1: float, nota_2: float):
     """Escreva aqui em baixo a sua solução"""
 
     media = (nota_1+nota_2)/2
+    #notas = 'Notas: %.1f' %(nota_1), 'e %.1f.' %(nota_2)
+    notas = f'Notas: {nota_1:.1f} e {nota_2:.1f}.'
+    media_print = 'Média: %.1f' %(media)
+    status = ''
+
 
     if 9 <= media <= 10:
-        print('Notas: %.1f' %(nota_1), 'e %.1f.' %(nota_2))
-        print('Média: %.1f' %(media))
-        print('Conceito: A')
-        print('Status: APROVADO')
+       conceito = 'A'
 
     elif 7.5 <= media < 9:
-        print('Notas: %.1f' %(nota_1), 'e %.1f.' %(nota_2))
-        print('Média: %.1f' %(media))
-        print('Conceito: B')
-        print('Status: APROVADO')
+        conceito = 'B'
 
     elif 6.0 <= media < 7.5:
-        print('Notas: %.1f' %(nota_1), 'e %.1f.' %(nota_2))
-        print('Média: %.1f' %(media))
-        print('Conceito: C')
-        print('Status: APROVADO')
+        conceito = 'C'
 
     elif 4 <= media < 6:
-        print('Notas: %.1f' %(nota_1), 'e %.1f.' %(nota_2))
-        print('Média: %.1f' %(media))
-        print('Conceito: D')
-        print('Status: REPROVADO')
+        conceito = 'D'
 
     else:
-        print('Notas: %.1f' %(nota_1), 'e %.1f.' %(nota_2))
-        print('Média: %.1f' %(media))
-        print('Conceito: E')
-        print('Status: REPROVADO')
+        conceito = 'E'
+
+
+
+    if conceito in 'DdEe':
+        status = 'Status: REPROVADO'
+
+    else:
+        status = 'Status: APROVADO'
+
+
+    print(notas)
+    print(media_print)
+    print(f'Conceito: {conceito}')
+    print(status)
