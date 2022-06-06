@@ -25,4 +25,4 @@ def positivo_ou_negativo(n):
         return 'positivo'
 
     else:
-        return 'não nem positivo nem negativo'
+        return 'não tem positivo nem negativo'

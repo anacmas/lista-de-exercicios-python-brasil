@@ -39,7 +39,7 @@ def investivar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str
     contador = 0
     contador_sim = 0
 
-    for item in lista[item]:
+    for item in lista:
       contador +=1
 
       if item == 'Sim':
@@ -47,21 +47,18 @@ def investivar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str
 
       else: 
         continue
-      
-    print(contador_sim)
-
-investivar('Sim','Não','Não','Não','Não')
-
-#     while contador < 5:
-#       contador +=1
-#       if (telefonou or estava_no_local or mora_perto or devia or trabalhou) == 'Sim':
-#         contador_sim += 1
-#       else: 
-#         continue
-
-#     print(contador_sim)
-      
+  
+    if contador_sim == 5:
+      return 'Assassino'
     
+    elif contador_sim == 4 or contador_sim == 3:
+      return 'Cúmplice'    
+
+    elif contador_sim == 2:
+      return 'Suspeito'
+    
+    else:
+      return 'Inocente'
     
 
 # investivar('Sim','Não','Não','Não','Não')

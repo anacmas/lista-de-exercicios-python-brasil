@@ -54,63 +54,73 @@ import math
 def decompor_numero(numero: int):
     """Escreva aqui em baixo a sua solução"""
 
-    unidade_str = 'unidade'
-    unidades_str = 'unidades'
+    if numero < 0:
+        return ('O número precisa ser positivo')
 
-    dezena_str = 'dezena'
-    dezenas_str = 'dezenas'
+    numero_string = str(numero)
+    A = 1
 
-    centena_str = 'centena'
-    centenas_str = 'centenas'
+    numero_separado = []
+
+    for i in range(0, len(numero_string), A):
+        numero_separado.append(int(numero_string[i : i + A]))
+
+
+    unidade = numero_separado[-1]
+
+    if unidade > 1:
+        palavra_unidade = 'unidades'
+
+    else:
+        palavra_unidade = 'unidade'
+
+
+    if numero > 9:
+        dezena = numero_separado[-2]
+
+        if dezena > 1:
+            palavra_dezena = 'dezenas'
+
+        else:
+            palavra_dezena = 'dezena'
+    
+    if numero > 99:
+        centena = numero_separado[-3]
+        
+        if centena > 1:
+            palavra_centena = 'centenas'
+
+        else:
+            palavra_centena = 'centena'
+
     
 
-    if 10 <= numero <= 99:
-        dezena = numero // 10
-        unidade = numero % 10
+        
+    if numero > 999:
+        return ('O número precisa ser menor que 1000')
 
-    elif 100 <= numero <= 999:
-        centena = numero // 100
-        dezena = (numero-centena) // 10
-        unidade = numero % 10
+    else:
+        if len(numero_separado) == 1:
+            return (f'{unidade} = {unidade} {palavra_unidade}')
 
+        elif len(numero_separado) == 2:
 
+            if unidade == 0:
+                return f'{numero} = {dezena} {palavra_dezena}'
 
+            else: 
+                return (f'{numero} = {dezena} {palavra_dezena} e {unidade} {palavra_unidade}')
+        
+        else:
+            if unidade == 0 and dezena == 0:
+                return (f'{numero} = {centena} {palavra_centena}')
 
+            elif unidade == 0:
+                return (f'{numero} = {centena} {palavra_centena} e {dezena} {palavra_dezena}')
 
+            elif dezena == 0:
+                return (f'{numero} = {centena} {palavra_centena} e {unidade} {palavra_unidade}')
 
-
-    if 0 > numero:
-        print('O número precisa ser positivo')
-
-    elif 1 == numero:
-        print(f'{numero} = {numero} unidade')
-
-    elif 2 <= numero <= 9:
-        print(f'{numero} = {numero} unidades')
-    
-    elif 10 <= numero <= 99:
-        dezena = numero // 10
-        unidade = numero % 10
-
-        if dezena == 1:
-            
-            if unidade > 1:
-                print(f'{numero} = {dezena} dezena e {unidade} unidades')
             else:
-                print(f'{numero} = {dezena} dezena e {unidade} unidade')
+                return (f'{numero} = {centena} {palavra_centena}, {dezena} {palavra_dezena} e {unidade} {palavra_unidade}')
 
-        else:
-            print(f'{numero} = {dezena} dezenas e {unidade} unidades')
-
-    elif 100 <= numero <= 999:
-        centena = numero // 100
-        dezena = (numero-centena) // 10
-        unidade = numero % 10
-        print(f'{numero} = {centena} centenas, {dezena} dezena e {unidade} unidades')
-
-        else:
-            print(f'{numero} = {dezena} dezenas e {unidade} unidades')
-
-
-    else: 
-        print('O número precisa ser menor que 1000')
