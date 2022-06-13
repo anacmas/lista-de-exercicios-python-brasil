@@ -127,7 +127,7 @@ def gerar_tabuada(n: int) -> str:
 
 
     if n <= 0 or n > 10:
-        print('Somente pode ser gerada taboada de 1 a 10')
+        print('Somente pode ser gerada tabuada de 1 a 10')
 
     else:
         contador = 0

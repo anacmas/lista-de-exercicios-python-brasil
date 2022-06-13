@@ -18,8 +18,33 @@ restrição).
 
 """
 
+from math import floor
 
 def calcular_ano_ultrapassagem_populacional(
         populacao_menor: int, taxa_crescimento_populacao_menor: float, populacao_maior,
         taxa_crescimento_populacao_maior:float ) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+    taxa_maior_porcentagem = taxa_crescimento_populacao_maior * 100
+
+    taxa_menor_porcentagem = taxa_crescimento_populacao_menor * 100
+
+    if taxa_crescimento_populacao_menor < taxa_crescimento_populacao_maior:
+        return f'A taxa de crescimento do país B ({taxa_maior_porcentagem:.1f}%) deve ser menor do que a do país A ({taxa_menor_porcentagem:.1f}%)'
+
+    else:
+        populacao_A = populacao_menor
+        crescimento_A = 1 + taxa_crescimento_populacao_menor
+
+        populacao_B = populacao_maior
+        crescimento_B = 1 + taxa_crescimento_populacao_maior
+
+        contador_anos = 0
+
+        while populacao_A < populacao_B:
+            contador_anos +=1
+            populacao_A *= crescimento_A
+
+            populacao_B *= crescimento_B
+
+        return f'População de A, depois de {contador_anos} ano(s) será de {floor(populacao_A)} pessoas, superando a de B, que será de {floor(populacao_B)} pessoas'

@@ -15,16 +15,37 @@ Também mostre a soma dos números da sequência.
 
 """
 
+import math
+from operator import contains
 
 def calcular_numeros_no_intervalo_e_somar(inicio: int, fim: int) -> str:
     """Escreva aqui em baixo a sua solução"""
 
+    if inicio > fim:
+        return 'Sequência: vazia. Soma: 0'
 
-    lista = [inicio, fim]
-    contador = inicio
 
-    while contador < fim-1:
-        contador += 1
-        lista.insert(-1, contador)
+    else:
 
-    print(f"Sequência: {(*lista, sep = ',')}")
+        lista = [inicio, '']
+        contador = inicio
+
+
+        while contador < fim-1:
+            contador += 1
+            lista.insert(-1, contador)
+
+        lista.pop()
+
+
+        contador_2 = 0
+        contador_lista = 0
+
+        while contador_2 < len(lista):
+            contador_lista += lista[contador_2]
+            contador_2 += 1
+        
+
+        print(f"'Sequência: ", end="")
+        print(*lista, sep = ', ', end="")
+        print(f". Soma: {contador_lista}'")

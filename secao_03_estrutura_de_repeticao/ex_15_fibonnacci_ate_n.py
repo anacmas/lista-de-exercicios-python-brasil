@@ -26,7 +26,12 @@ n−ésimo termo.
 def calcular_serie_de_fibonacci(n: int) -> str:
     """Escreva aqui em baixo a sua solução"""
 
-    sequencia = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+    sequencia = [1, 1, 2]
+
+    while len(sequencia) < n:
+        adiciona_elemento = sequencia[-1] + sequencia[-2]
+        sequencia.append(adiciona_elemento)
+
 
     contador = 0
 
