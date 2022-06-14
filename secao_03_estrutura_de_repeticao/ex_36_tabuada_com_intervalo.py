@@ -41,4 +41,9 @@ def gerar_tabuada(n: int, de: int, ate: int):
     """Escreva aqui em baixo a sua solução"""
 
     if ate < de or ate < n or de < n:
-        print(f'O limite final (4) deve ser maior que o inicial (5)')
+        print(f'O limite final ({ate}) deve ser maior que o inicial ({de})')
+
+    else: 
+        
+        for numero in range(de, ate+1):
+            print(f'{n} X {numero} = {n * numero}')

@@ -87,6 +87,104 @@ A percentagem de votos em branco sobre o total de votos. Para finalizar o conjun
 """
 from collections import Counter
 
-
 def apurar_votos(*votos):
     """Escreva aqui em baixo a sua solução"""
+
+    contador_b = 0
+    contador_l = 0
+    contador_d = 0
+    contador_f = 0
+    contador_nulo = 0
+    contador_branco = 0
+
+    b = 'Bostonaro  '
+    l = 'Luladrão   '
+    d = 'Dilmanta   '
+    f = 'FHC Isentão'
+
+    for voto in votos:
+
+        if voto == '1':
+            contador_b += 1
+
+        if voto == '2':
+            contador_l += 1
+
+        if voto == '3':
+            contador_d += 1
+        
+        if voto == '4':
+            contador_f += 1
+
+        if voto == '5':
+            contador_nulo += 1
+        
+        if voto == '6':
+            contador_branco += 1
+
+
+    votos_validos = [contador_b, contador_l, contador_d, contador_f]
+
+    codigo = 1
+
+    for contador in votos_validos:
+
+        calculo_porcentagem = (contador*100/len(votos))
+
+        if contador == votos_validos[0]:
+            candidato = b
+        
+        elif contador == votos_validos[1]:
+            candidato = l
+
+        elif contador == votos_validos[2]:
+            candidato = d
+
+        else:
+            candidato = f
+
+        print(f'{codigo}                   {candidato}       {contador}       {calculo_porcentagem:.1f}%')
+
+        codigo += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # lista_de_votos = [contador_b, contador_l, contador_d, contador_f, contador_nulo, contador_branco]
+
+    # codigo = 1
+
+    # while codigo < 4:
+        
+    #     calculo_porcentagem = (contador*100)/len(votos)
+        
+        
+
+    #     codigo += 1
+
+
+
+    print('Código do Candidato Nome do Candidato Votos Porcentagem sobre total')

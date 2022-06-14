@@ -17,3 +17,17 @@ representando a sua altura em centímetros. Encontre o aluno mais alto e o mais 
 
 def calcular_aluno_mais_baixo_e_mais_alto(*alunos) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+    menor_aluno = ['', 300]
+    maior_aluno = ['', 0]
+    
+    for aluno in alunos:
+
+        if aluno[1] > maior_aluno[1]:
+            maior_aluno = aluno
+
+        if aluno[1] < menor_aluno[1]:
+            menor_aluno = aluno
+
+    return f'O maior aluno é o {maior_aluno[0]} com {maior_aluno[1]} cm. O menor aluno é o {menor_aluno[0]} com {menor_aluno[1]} cm'
+            
