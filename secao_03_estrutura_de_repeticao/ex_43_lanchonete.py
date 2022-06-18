@@ -109,3 +109,104 @@ comprados.
 
 def fechar_conta(*itens):
     """Escreva aqui em baixo a sua solução"""
+
+    tracos = '|---------------------------------------------------------------------------|'
+
+    print('_____________________________________________________________________________')
+    print('|                              RESUMO DA CONTA                              |')
+    print(tracos)
+    print('| Epecificação     | Código | Preço Unitário (R$) | Quantidade | Total (R$) |')
+
+    if len(itens) == 0:
+        zero = 0
+        print(tracos)
+        print(f'| Total Geral:                                    |          {zero} |       {zero:.2f} |')
+        print('-----------------------------------------------------------------------------')
+
+
+    else:
+        contador_cachorro = 0
+        contador_bauru_s = 0
+        contador_bauru_o = 0
+        contador_hamburguer = 0
+        contador_cheeseburguer = 0
+        contador_refrigerante = 0
+
+        for item in itens:
+
+            if item[0] == '100':
+                contador_cachorro += item[1]
+
+            elif item[0] == '101':
+                contador_bauru_s += item[1]
+
+            elif item[0] == '102':
+                contador_bauru_o += item[1]
+
+            elif item[0] == '103':
+                contador_hamburguer += item[1]
+            
+            elif item[0] == '104':
+                contador_cheeseburguer += item[1]
+
+            else:
+                contador_refrigerante += item[1]
+        
+        lista = [('Cachorro Quente', 100, contador_cachorro, 1.2), 
+                ('Bauru Simples  ', 101, contador_bauru_s, 1.3), 
+                ('Bauru com Ovo  ', 102, contador_bauru_o, 1.5), 
+                ('Hamburger      ', 103, contador_hamburguer, 1.2), 
+                ('Cheeseburger   ', 104, contador_cheeseburguer, 1.3),
+                ('Refrigerante   ', 105, contador_refrigerante, 1)]
+
+
+        contador = 0
+        contador_alimento = 0
+        preco_total_compra = 0
+        quantidade_total_itens_compra = 0
+
+        for item in lista:
+            
+            if contador == 0:
+                contador_alimento = lista[0][2]
+
+            elif contador == 1:
+                contador_alimento = lista[1][2]
+
+            elif contador == 2:
+                contador_alimento = lista[2][2]
+                
+            elif contador == 3:
+                contador_alimento = lista[3][2]
+                
+            elif contador == 4:
+                contador_alimento = lista[4][2]
+            
+            elif contador == 5:
+                contador_alimento = lista[5][2]
+
+            if contador_alimento > 0:
+                preco_total_por_alimento = contador_alimento * item[3]
+                print(f'| {item[0]}  | {item[1]}    | {item[3]:.2f}                |          {item[2]} |       {preco_total_por_alimento:.2f} |')
+                
+                preco_total_compra += preco_total_por_alimento
+                quantidade_total_itens_compra += item[2]
+
+            contador += 1
+
+        if quantidade_total_itens_compra > 9:
+            espaco_quantidade = ''
+        
+        else: 
+            espaco_quantidade = ' '
+
+        if preco_total_compra >= 10:
+            espaco_preco = ''
+        
+        else:
+            espaco_preco = ' '
+
+        print(tracos)
+        print(f'| Total Geral:                                    |         {espaco_quantidade}{quantidade_total_itens_compra} |      {espaco_preco}{preco_total_compra:.2f} |')
+        print('-----------------------------------------------------------------------------')
+

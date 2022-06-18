@@ -31,24 +31,58 @@ Os valores devem ser exibidos com duas casas decimais
 def calcular_salarios_anuais(salario: float):
     """Escreva aqui em baixo a sua solução"""
 
-    COMEÇAR DO ZERO
+    ano = 2019
+    aumento_em_porcentagem = 1.5
+    aumento = 1.015
 
-    print(f' Salário em 2018: R$ {salario:.2f}')
-    
-    contador_ano = 2019
-    contador = 0
+    contador = 2019
 
-    porcentagem_anual = 1.5
-    porcentagem_anual_dividido_por_100 = 0.015
-    
+    salario_ano = salario
 
+    print(f'Salário em {ano-1}: R$ {salario:.2f}')
 
-    while contador < 5:
-        porcentagem_anual_calculo = salario + (salario*porcentagem_anual_dividido_por_100)
+    while contador < (ano + 5):
 
-        print(f' Salário em {contador_ano}: R$ {porcentagem_anual_calculo}. Aumento porcentual: {porcentagem_anual:.2f}%')
+        salario_ano = salario_ano * aumento
 
-        porcentagem_anual_dividido_por_100 *= 2
-        porcentagem_anual *= 2
-        contador_ano += 1
+        print(f'Salário em {contador}: R$ {salario_ano:.2f}. Aumento porcentual: {aumento_em_porcentagem:.2f}%')
+        
+        aumento_em_porcentagem *= 2
+        aumento = (aumento - 1) *2
+        aumento += 1
         contador += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # print(f' Salário em 2018: R$ {salario:.2f}')
+    
+    # contador_ano = 2019
+    # contador = 0
+
+    # porcentagem_anual = 1.5
+    # porcentagem_anual_dividido_por_100 = 0.015
+    
+
+
+    # while contador < 5:
+    #     porcentagem_anual_calculo = salario + (salario*porcentagem_anual_dividido_por_100)
+
+    #     print(f' Salário em {contador_ano}: R$ {porcentagem_anual_calculo}. Aumento porcentual: {porcentagem_anual:.2f}%')
+
+    #     porcentagem_anual_dividido_por_100 *= 2
+    #     porcentagem_anual *= 2
+    #     contador_ano += 1
+    #     contador += 1

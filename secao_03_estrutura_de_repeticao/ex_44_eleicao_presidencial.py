@@ -90,6 +90,8 @@ from collections import Counter
 def apurar_votos(*votos):
     """Escreva aqui em baixo a sua solução"""
 
+    print('Código do Candidato Nome do Candidato Votos Porcentagem sobre total')
+
     contador_b = 0
     contador_l = 0
     contador_d = 0
@@ -130,61 +132,59 @@ def apurar_votos(*votos):
     for contador in votos_validos:
 
         calculo_porcentagem = (contador*100/len(votos))
+        
+        if 10 <= calculo_porcentagem < 99:
+            espaco = ' '
 
-        if contador == votos_validos[0]:
+        elif calculo_porcentagem < 10:
+            espaco = '  '
+        
+        else:
+            espaco = ''
+
+        if codigo == 1:
             candidato = b
         
-        elif contador == votos_validos[1]:
+        elif codigo == 2:
             candidato = l
 
-        elif contador == votos_validos[2]:
+        elif codigo == 3:
             candidato = d
 
         else:
             candidato = f
 
-        print(f'{codigo}                   {candidato}       {contador}       {calculo_porcentagem:.1f}%')
+        print(f'{codigo}                   {candidato}       {contador}     {espaco}{calculo_porcentagem:.1f}%')
 
         codigo += 1
 
+    print('-------------------------------------------------------------------')
 
 
+    votos_isentos = [contador_nulo, contador_branco]
+
+    codigo_isentos = 5
 
 
+    for contador_isentos in votos_isentos:
+        calculo_porcentagem = (contador_isentos*100/len(votos))
+        nulo = 'Nulos  '
+        branco = 'Brancos'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # lista_de_votos = [contador_b, contador_l, contador_d, contador_f, contador_nulo, contador_branco]
-
-    # codigo = 1
-
-    # while codigo < 4:
+        if calculo_porcentagem < 10:
+            espaco = ' '
         
-    #     calculo_porcentagem = (contador*100)/len(votos)
+        else:
+            espaco = ''
+
+        if codigo_isentos == 5:
+            isentos = contador_nulo
+            tipo = nulo
         
+        else:
+            isentos = contador_branco
+            tipo = branco
         
+        print(f'{codigo_isentos}                   Votos {tipo}     {contador_isentos}      {espaco}{calculo_porcentagem:.1f}%')
 
-    #     codigo += 1
-
-
-
-    print('Código do Candidato Nome do Candidato Votos Porcentagem sobre total')
+        codigo_isentos += 1

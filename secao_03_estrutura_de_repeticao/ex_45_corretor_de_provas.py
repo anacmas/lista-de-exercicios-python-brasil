@@ -46,6 +46,79 @@ Gabarito da Prova:
     Total de Alunos: 2
 """
 
-
 def corrigir(*provas):
     """Escreva aqui em baixo a sua solução"""
+
+
+    print('Aluno                 Nota')
+
+    nota_geral = 0
+
+    lista_notas = []
+
+    for aluno in provas:
+        pontos = 0
+        contador = 1
+
+        while contador < 11:
+
+            if contador == 1 or contador == 10:
+                resposta = 'A'
+
+            elif contador == 2 or contador == 9:
+                resposta = 'B'
+            
+            elif contador == 3 or contador == 8:
+                resposta = 'C'
+            
+            elif contador == 4 or contador == 7:
+                resposta = 'D' 
+
+            elif contador == 5 or contador == 6:
+                resposta = 'E'
+
+
+            if aluno[contador] == resposta:
+                pontos += 1
+
+            contador += 1
+            
+        lista_notas.append(pontos)
+        
+        
+        nota_geral += pontos
+
+        
+        if len(aluno[0]) == 5:
+            espaco = ' '
+        
+        else: espaco = ''
+
+        if pontos == 10:
+            espaco_pontos = ''
+        
+        else:
+            espaco_pontos = ' '
+
+        print(f'{aluno[0]}{espaco}                {espaco_pontos}{pontos}')
+
+
+    for nota in lista_notas:
+        nota_mais_alta = lista_notas[0]
+        nota_mais_baixa = lista_notas[0]
+
+        if nota > nota_mais_alta:
+            nota_mais_alta = nota
+        
+        if nota < nota_mais_baixa:
+            nota_mais_baixa = nota
+
+
+    media_geral = nota_geral /len(provas)
+
+
+    print('---------------------------')
+    print(f'Média geral: {media_geral}')
+    print(f'Maior nota: {nota_mais_alta}')
+    print(f'Menor nota: {nota_mais_baixa}')
+    print(f'Total de Alunos: {len(provas)}')
