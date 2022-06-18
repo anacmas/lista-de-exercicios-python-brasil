@@ -56,3 +56,72 @@ da média das alturas e dos pesos dos clientes
 
 def rodar_senso():
     """Escreva aqui em baixo a sua solução"""
+
+    lista = []
+
+    nome = str(input('Nome: '))
+
+    while nome != '0':
+        altura = int(input('Altura: '))
+        peso = int(input('Peso: '))
+        lista.append((nome, altura, peso))
+        nome = str(input('Nome: '))
+
+
+    mais_alto = 0
+    mais_baixo = 999
+    maior_altura = 0
+    menor_altura = 999
+
+    mais_gordo = 0
+    mais_magro = 999
+    maior_peso = 0
+    menor_peso = 999
+
+    nome_mais_alto = ''
+    nome_mais_baixo = ''
+    nome_mais_gordo = ''
+    nome_mais_magro = ''
+
+    soma_alturas = 0
+    soma_pesos = 0
+
+    for pessoa in lista:
+        
+        if pessoa[1] > maior_altura:
+            mais_alto = pessoa
+            maior_altura = pessoa[1]
+            nome_mais_alto = pessoa[0]
+        
+        if pessoa[1] < menor_altura:
+            mais_baixo = pessoa
+            menor_altura = pessoa[1]
+            nome_mais_baixo = pessoa[0]
+        
+        if pessoa[2] > maior_peso:
+            mais_gordo = pessoa
+            maior_peso = pessoa[2]
+            nome_mais_gordo = pessoa[0]
+
+        if pessoa[2] < menor_peso:
+            mais_magro = pessoa
+            menor_peso = pessoa[2]
+            nome_mais_magro = pessoa[0]
+
+        soma_alturas += pessoa[1]
+
+        soma_pesos += pessoa[2]
+
+    media_altura = soma_alturas/len(lista)
+    media_peso = soma_pesos/len(lista)
+
+        
+    print(f'Cliente mais alto: {nome_mais_alto}, com {maior_altura} centímetros')
+    print(f'Cliente mais baixo: {nome_mais_baixo}, com {menor_altura} centímetros')
+    print(f'Cliente mais magro: {nome_mais_magro}, com {menor_peso} kilos')
+    print(f'Cliente mais gordo: {nome_mais_gordo}, com {maior_peso} kilos')
+
+    print('--------------------------------------------------')
+
+    print(f'Media de altura dos clientes: {media_altura:.1f} centímetros')
+    print(f'Media de peso dos clientes: {media_peso:.1f} kilos')
