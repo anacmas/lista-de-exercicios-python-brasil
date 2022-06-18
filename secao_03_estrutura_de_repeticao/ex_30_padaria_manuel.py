@@ -130,13 +130,13 @@ def gerar_tabela_de_precos(preco_por_pao: float):
             conta = 1.99 * i
             
             if i <= 5:
-                print(f'{i}  - R$  {conta:.2f}')
+                print(f'{i}  - R$   {conta:.2f}')
 
             elif i <= 9:
-                print(f'{i}  - R$ {conta:.2f}')
+                print(f'{i}  - R$  {conta:.2f}')
             
             else: 
-                print(f'{i} - R$ {conta:.2f}')
+                print(f'{i} - R$  {conta:.2f}')
     
     else:
         for i in range(1, 51):
