@@ -51,23 +51,22 @@ def calcular_primos_e_divisoes(n: int) -> Tuple[str, int]:
         return ('2', 0)
 
     else:
-        count = 2
-        contador_primos = 0
-
         primo = []
 
-        while count < n+1:
+        for p in range(2, n+1):
+            e_primo = True
+            count = 2
 
-            if n % (count) == 0:
-                primoasss = False
-            
-            if n % count != 0 and count != n:
-                primoasas = True
-                contador_primos += 1
-                primo.append(n)
+            while count < p:
+                if p % (count) == 0:
+                    e_primo = False
+                count += 1
+
+            if(e_primo):
+                primo.append(p)
+
+        resultado = ', '.join(str(x) for x in primo)
         
-            count += 1
-
-        return ()
+        return (resultado, count-2)
         
 
