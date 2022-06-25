@@ -89,22 +89,18 @@ def rodar_senso():
     for pessoa in lista:
         
         if pessoa[1] > maior_altura:
-            mais_alto = pessoa
             maior_altura = pessoa[1]
             nome_mais_alto = pessoa[0]
         
         if pessoa[1] < menor_altura:
-            mais_baixo = pessoa
             menor_altura = pessoa[1]
             nome_mais_baixo = pessoa[0]
         
         if pessoa[2] > maior_peso:
-            mais_gordo = pessoa
             maior_peso = pessoa[2]
             nome_mais_gordo = pessoa[0]
 
         if pessoa[2] < menor_peso:
-            mais_magro = pessoa
             menor_peso = pessoa[2]
             nome_mais_magro = pessoa[0]
 
@@ -125,3 +121,5 @@ def rodar_senso():
 
     print(f'Media de altura dos clientes: {media_altura:.1f} centímetros')
     print(f'Media de peso dos clientes: {media_peso:.1f} kilos')
+
+
