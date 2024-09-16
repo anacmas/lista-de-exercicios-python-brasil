@@ -50,3 +50,26 @@ divisível.
 
 def eh_primo(n: int) -> bool:
     """Escreva aqui em baixo a sua solução"""
+
+
+    if n <= 1:
+        print(False)
+
+    elif n == 2:
+        print(True)
+
+    else:
+
+        primo = True
+
+        for item in range(2, n):
+
+            if (n % item) == 0:
+                print(f'É divisível por {item}')
+                primo = False
+
+        if primo == False:
+            print(False)
+            
+        else: 
+            print(True)

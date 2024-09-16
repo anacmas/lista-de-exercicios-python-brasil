@@ -87,6 +87,104 @@ A percentagem de votos em branco sobre o total de votos. Para finalizar o conjun
 """
 from collections import Counter
 
-
 def apurar_votos(*votos):
     """Escreva aqui em baixo a sua solução"""
+
+    print('Código do Candidato Nome do Candidato Votos Porcentagem sobre total')
+
+    contador_b = 0
+    contador_l = 0
+    contador_d = 0
+    contador_f = 0
+    contador_nulo = 0
+    contador_branco = 0
+
+    b = 'Bostonaro  '
+    l = 'Luladrão   '
+    d = 'Dilmanta   '
+    f = 'FHC Isentão'
+
+    for voto in votos:
+
+        if voto == '1':
+            contador_b += 1
+
+        if voto == '2':
+            contador_l += 1
+
+        if voto == '3':
+            contador_d += 1
+        
+        if voto == '4':
+            contador_f += 1
+
+        if voto == '5':
+            contador_nulo += 1
+        
+        if voto == '6':
+            contador_branco += 1
+
+
+    votos_validos = [contador_b, contador_l, contador_d, contador_f]
+
+    codigo = 1
+
+    for contador in votos_validos:
+
+        calculo_porcentagem = (contador*100/len(votos))
+        
+        if 10 <= calculo_porcentagem < 99:
+            espaco = ' '
+
+        elif calculo_porcentagem < 10:
+            espaco = '  '
+        
+        else:
+            espaco = ''
+
+        if codigo == 1:
+            candidato = b
+        
+        elif codigo == 2:
+            candidato = l
+
+        elif codigo == 3:
+            candidato = d
+
+        else:
+            candidato = f
+
+        print(f'{codigo}                   {candidato}       {contador}     {espaco}{calculo_porcentagem:.1f}%')
+
+        codigo += 1
+
+    print('-------------------------------------------------------------------')
+
+
+    votos_isentos = [contador_nulo, contador_branco]
+
+    codigo_isentos = 5
+
+
+    for contador_isentos in votos_isentos:
+        calculo_porcentagem = (contador_isentos*100/len(votos))
+        nulo = 'Nulos  '
+        branco = 'Brancos'
+
+        if calculo_porcentagem < 10:
+            espaco = ' '
+        
+        else:
+            espaco = ''
+
+        if codigo_isentos == 5:
+            isentos = contador_nulo
+            tipo = nulo
+        
+        else:
+            isentos = contador_branco
+            tipo = branco
+        
+        print(f'{codigo_isentos}                   Votos {tipo}     {contador_isentos}      {espaco}{calculo_porcentagem:.1f}%')
+
+        codigo_isentos += 1

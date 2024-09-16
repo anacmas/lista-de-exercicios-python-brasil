@@ -27,3 +27,16 @@ uma nota de 5 e quatro notas de 1.
 
 def calcular_troco(valor: int) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+    notas = [100, 50, 10, 5, 1]
+    troco = []
+    print("'", end='')
+
+    for nota in notas:
+        if valor // nota:
+            troco.append(f'{valor // nota} nota{"s" if valor//nota > 1 else ""} de R$ {nota}')
+        valor = valor%nota
+
+    for i, r in enumerate(troco):
+        print(f'{r}{"" if i == len(troco)-1 else (" e " if i == len(troco)-2 else ", ")}', end= '\'\n' if  i == len(troco)-1 else '')
+

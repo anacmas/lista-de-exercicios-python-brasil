@@ -49,6 +49,78 @@ Observando os termos no plural a colocação do "e", da vírgula entre outros. E
 
 """
 
+import math
 
 def decompor_numero(numero: int):
     """Escreva aqui em baixo a sua solução"""
+
+    if numero < 0:
+        return ('O número precisa ser positivo')
+
+    numero_string = str(numero)
+    A = 1
+
+    numero_separado = []
+
+    for i in range(0, len(numero_string), A):
+        numero_separado.append(int(numero_string[i : i + A]))
+
+
+    unidade = numero_separado[-1]
+
+    if unidade > 1:
+        palavra_unidade = 'unidades'
+
+    else:
+        palavra_unidade = 'unidade'
+
+
+    if numero > 9:
+        dezena = numero_separado[-2]
+
+        if dezena > 1:
+            palavra_dezena = 'dezenas'
+
+        else:
+            palavra_dezena = 'dezena'
+    
+    if numero > 99:
+        centena = numero_separado[-3]
+        
+        if centena > 1:
+            palavra_centena = 'centenas'
+
+        else:
+            palavra_centena = 'centena'
+
+    
+
+        
+    if numero > 999:
+        return ('O número precisa ser menor que 1000')
+
+    else:
+        if len(numero_separado) == 1:
+            return (f'{unidade} = {unidade} {palavra_unidade}')
+
+        elif len(numero_separado) == 2:
+
+            if unidade == 0:
+                return f'{numero} = {dezena} {palavra_dezena}'
+
+            else: 
+                return (f'{numero} = {dezena} {palavra_dezena} e {unidade} {palavra_unidade}')
+        
+        else:
+            if unidade == 0 and dezena == 0:
+                return (f'{numero} = {centena} {palavra_centena}')
+
+            elif unidade == 0:
+                return (f'{numero} = {centena} {palavra_centena} e {dezena} {palavra_dezena}')
+
+            elif dezena == 0:
+                return (f'{numero} = {centena} {palavra_centena} e {unidade} {palavra_unidade}')
+
+            else:
+                return (f'{numero} = {centena} {palavra_centena}, {dezena} {palavra_dezena} e {unidade} {palavra_unidade}')
+

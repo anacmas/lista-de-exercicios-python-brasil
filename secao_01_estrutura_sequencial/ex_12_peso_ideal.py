@@ -13,9 +13,14 @@ Mostrar a área com 1 casa decimal.
     >>> ex_12_peso_ideal.input = lambda k: '1.80'
     >>> ex_12_peso_ideal.calcular_peso_ideal()
     Seu peso ideal é 72.9 kg
-
+ 
 """
 
 
 def calcular_peso_ideal():
     """Escreva aqui em baixo a sua solução"""
+    altura = float(input('Insira sua altura '))
+    peso = (72.7*altura) - 58
+    print('Seu peso ideal é %.1f' %(peso), 'kg')
+
+    

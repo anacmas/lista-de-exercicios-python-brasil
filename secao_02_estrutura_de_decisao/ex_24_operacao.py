@@ -27,7 +27,49 @@ Mostre o restultado com duas casas decimais
     Número é positivo e decimal.
 
 """
-
+import math
 
 def fazer_operacao_e_classificar(n_1: float, n_2: float, operacao: str):
     """Escreva aqui em baixo a sua solução"""
+
+    if operacao == '+':
+        resultado = n_1 + n_2
+
+    elif operacao == '-':
+        resultado = n_1 - n_2
+
+    elif operacao == '/':
+        resultado = n_1/n_2
+
+    else:
+        resultado = n_1 * n_2
+
+
+
+    if (math.floor(resultado)) % 2 == 0:
+        par_impar = 'par'
+
+    else:
+        par_impar = 'impar'
+      
+    if resultado > 0:
+        sinal = 'positivo'
+
+    
+    elif resultado == 0:
+        sinal = 'neutro'
+      
+    else:
+        sinal = 'negativo'
+
+
+    if resultado - (math.floor(resultado)) != 0:
+        decimal_int = 'decimal'
+        print(f'Resultado: {resultado:.2f}')
+        print(f'Número é {sinal} e {decimal_int}.')
+
+    else:
+        decimal_int = 'inteiro'
+        print(f'Resultado: {resultado:.2f}')
+        print(f'Número é {par_impar}, {sinal} e {decimal_int}.')
+    

@@ -33,3 +33,17 @@ mostre os números um ao lado do outro.
 
 def escrever_numeros_de_1_a_20(formato:str) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+    count = 0
+
+    if formato == 'um_abaixo_do_outro':
+        while count < 20:
+            count += 1
+            print(count)
+    
+    else:
+        while count < 19:
+            count += 1
+            espaco = ' '
+            print(f'{count}{espaco}', end="")
+        print('20')
